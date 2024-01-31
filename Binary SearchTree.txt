@@ -1,0 +1,103 @@
+class Node:
+    def __init__(self,x):
+        self.data=x
+        self.left=None
+        self.right=None
+    def insert(self,x):
+        if self.data==None:
+            self.data=x
+            return
+        if self.data>x:
+            if self.left==None:
+                self.left=Node(x)
+            else:
+                self.left.insert(x)
+        else:
+            if self.right==None:
+                self.right=Node(x)
+            else:
+                self.right.insert(x)
+    def show(self):
+        if self.left!=None:
+            self.left.show()
+        print(self.data,end=" ")
+        if self.right:
+            self.right.show()
+root=Node(40)
+while True:
+    ch=int(input("1.insert\n2.show\n3.Exit3 : "))
+    if ch==1:
+        y=int(input("Enter the number you want to insert: "))
+        root.insert(y)
+    elif ch==2:
+        root.show()
+    elif ch==3:
+        break
+    else:
+        print("Invalid choice")
+
+
+
+
+Output:
+1.insert
+2.show
+3.Exit3 : 2
+
+40 
+
+1.insert
+2.show
+3.Exit3 : 1
+
+Enter the number you want to insert: 30
+
+1.insert
+2.show
+3.Exit3 : 2
+
+
+30 40 
+
+
+1.insert
+2.show
+3.Exit3 : 1
+Enter the number you want to insert: 50
+
+
+1.insert
+2.show
+3.Exit3 : 2
+
+30 40 50 
+
+
+1.insert
+2.show
+3.Exit3 : 1
+Enter the number you want to insert: 35
+
+
+1.insert
+2.show
+3.Exit3 : 2
+
+30 35 40 50 
+
+1.insert
+2.show
+3.Exit3 : 1
+Enter the number you want to insert: 55
+
+
+1.insert
+2.show
+3.Exit3 : 2
+30 35 40 50 55 
+
+
+1.insert
+2.show
+3.Exit3 : 3
+------------------------------------------------------------
