@@ -1,0 +1,117 @@
+class Node:
+    def __init__(self,x):
+        self.data=x
+        self.left=None
+        self.right=None
+    def insert(self,x):
+        if self.data==None:
+            self.data=x
+            return
+        if self.data>x:
+            if self.left==None:
+                self.left=Node(x)
+            else:
+                self.left.insert(x)
+        else:
+            if self.right==None:
+                self.right=Node(x)
+            else:
+                self.right.insert(x)
+    def show(self):
+        if self.left!=None:
+            self.left.show()
+        print(self.data,end=" ")
+        if self.right:
+            self.right.show()
+    def search(self,x):
+        if self.data==x:
+            print("node is found")
+            return
+        if x<self.data:
+            if self.left:
+                self.left.search(x)
+            else:
+                print("node is not found")
+        else:
+            if self.right:
+                self.right.search(x)
+            else:
+                print("node is not found")
+root=Node(40)
+while True:
+    ch=int(input("1.insert\n2.show\n3.search\n4.Exit\n"))
+    if ch==1:
+        y=int(input("Enter the number you want to insert: "))
+        root.insert(y)
+    elif ch==2:
+        root.show()
+    elif ch==3:
+        temp=int(input("Enter the element you want to search for: "))
+        root.search(temp)
+    elif ch==4:
+        break
+    else:
+        print("Invalid choice")
+Output:
+
+1.insert
+2.show
+3.search
+4.Exit
+1
+Enter the number you want to insert: 50
+1.insert
+2.show
+3.search
+4.Exit
+1
+Enter the number you want to insert: 60
+1.insert
+2.show
+3.search
+4.Exit
+1
+Enter the number you want to insert: 70
+1.insert
+2.show
+3.search
+4.Exit
+1
+Enter the number you want to insert: 80
+1.insert
+2.show
+3.search
+4.Exit
+1
+Enter the number you want to insert: 20
+1.insert
+2.show
+3.search
+4.Exit
+1
+Enter the number you want to insert: 30
+1.insert
+2.show
+3.search
+4.Exit
+1
+Enter the number you want to insert: 10
+1.insert
+2.show
+3.search
+4.Exit
+2
+10 20 30 40 50 60 70 80 1.insert
+2.show
+3.search
+4.Exit
+3
+Enter the element you want to search for: 10
+node is found
+1.insert
+2.show
+3.search
+4.Exit
+3
+Enter the element you want to search for: 100
+node is not found
