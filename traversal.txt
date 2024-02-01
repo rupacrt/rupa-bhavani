@@ -1,0 +1,151 @@
+class Node:
+    def _init_(self,x):
+        self.data=x
+        self.left=None
+        self.right=None
+    def insert(self,x):
+        if self.data==None:
+            self.data=x
+            return
+        if self.data>x:
+            if self.left==None:
+                self.left=Node(x)
+            else:
+                self.left.insert(x)
+        else:
+            if self.right==None:
+                self.right=Node(x)
+            else:
+                self.right.insert(x)
+    def preorder(self):
+        print(self.data,end="")
+        if self.left:
+            self.left.preorder()
+        if self.right:
+            self.right.preorder()
+    def inorder(self):
+        if self.left:
+            self.left.inorder()
+        print(self.data,end="")
+        if self.right:
+            self.right.inorder()
+    def postorder(self):
+        if self.left:
+            self.left.postorder()
+        if self.right:
+            self.right.postorder()
+        print(self.data,end="")    
+                
+root=Node(30)
+while True:
+    print()
+    print("1.insert\n2.pre-order\n3.in-order\n4.post-order\n5.exit")
+    ch=int(input("enter your choice"))
+    if ch==1:
+        x=int(input("enter the element"))
+        root.insert(x)
+    elif ch==2:
+        root.preorder()
+    elif ch==3:
+        root.inorder()
+    elif ch==4:
+        root.postorder()
+    elif ch==5:
+        break
+    else:
+        print("invalid choice")
+
+
+
+Output:
+1.insert
+2.pre-order
+3.in-order
+4.post-order
+5.exit
+enter your choice1
+enter the element10
+
+1.insert
+2.pre-order
+3.in-order
+4.post-order
+5.exit
+enter your choice1
+enter the element5
+
+1.insert
+2.pre-order
+3.in-order
+4.post-order
+5.exit
+enter your choice1
+enter the element12
+
+1.insert
+2.pre-order
+3.in-order
+4.post-order
+5.exit
+enter your choice1
+enter the element3
+
+1.insert
+2.pre-order
+3.in-order
+4.post-order
+5.exit
+enter your choice1
+enter the element7
+
+1.insert
+2.pre-order
+3.in-order
+4.post-order
+5.exit
+enter your choice1
+enter the element30
+
+1.insert
+2.pre-order
+3.in-order
+4.post-order
+5.exit
+enter your choice1
+enter the element25
+
+1.insert
+2.pre-order
+3.in-order
+4.post-order
+5.exit
+enter your choice1
+enter the element87
+
+1.insert
+2.pre-order
+3.in-order
+4.post-order
+5.exit
+enter your choice2
+21 10 5 3 7 12 30 25 87
+1.insert
+2.pre-order
+3.in-order
+4.post-order
+5.exit
+enter your choice3
+3 5 7 10 12 21 25 30 87
+1.insert
+2.pre-order
+3.in-order
+4.post-order
+5.exit
+enter your choice4
+3 7 5 12 10 25 87 30 21
+1.insert
+2.pre-order
+3.in-order
+4.post-order
+5.exit
+enter your choice5
